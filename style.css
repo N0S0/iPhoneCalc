@@ -1,0 +1,89 @@
+*{
+  margin: 0 auto;
+}
+/* 計算機 */
+#calculator{
+  width:250px ;
+  height: 370px;
+  margin: 0 auto;
+  text-align: center;
+  background: black;
+  font-size: 30px;
+  color: white;
+  }
+/* 答えの表示部分 */
+#answer{
+  text-align: right;
+  margin-top: 20px;
+  background: black;
+  width: 220px;
+  height: 40px;
+  color: white;
+  font-size: 30px;
+  border: none;
+}
+/* 答えの表示について */
+#answer::placeholder{
+  color: white;
+}
+/* AC、+/-、% */
+.design0{
+  border-radius: 50%;
+  margin: 5px auto;
+  background: lightgray;
+  border: 1px solid lightgray;
+  color: white;
+  justify-content: space-between;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  outline: 0;
+}
+
+.design{
+  border-radius: 50%;
+  margin: 5px auto;
+  background: rgb(75, 85, 92);
+  border: 1px solid rgb(75, 85, 92);
+  color: white;
+  justify-content: space-between;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  outline: 0;
+}
+
+.design:hover{
+  background: lightgray;
+}
+/* 演算記号、= */
+.enzan, #equal{
+  background: orange;
+  border: 1px solid orange;
+  border-radius: 50%;
+  margin: 5px auto;
+  color: white;
+  justify-content: space-between;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  outline: 0;
+}
+/* ボタンにマウスオーバーしたとき色を変える */
+.enzan:hover{
+  background: rgb(250, 172, 94);
+}
+/* ボタンにマウスオーバーしたとき色を変える */
+#equal:hover{
+  background: rgb(250, 172, 94);
+}
+
+/* ゼロだけ楕円ぽく */
+#zero{
+  height: 45px;
+  width: 90px;
+  border-radius: 50px 50px 50px 50px;
+  text-align: left;
+  padding-left: 15px;
+}
+
