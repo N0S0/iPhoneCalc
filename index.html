@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPhone風電卓</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="text/javascript" src="../jquery-3.4.1.min.js"></script>
+
+</head>
+<body>
+  <h1>★JavaScriptでiPhone風電卓★</h1>
+
+  <div id="calculator">
+  <!-- answer -->
+  <input type="text" name="answer" id="answer" value="" placeholder="0" disabled="disabled" maxlength="9">
+
+  <!-- ボタンに数字を入れていく -->
+
+    <div id="btn-top">
+      <input class="design0" id="clear" type="button" value="AC">
+      <!-- 数字を押したらCに切り替える。始めは見えないようにしておく -->
+      <!-- <input class="design0" id="c" type="button" value="C"> -->
+      <input class="design0" id="plusminus" type="button" value="+/-">
+      <input class="design0" id="percent" type="button" value="%">
+      <input class="enzan" id="devision" type="button" value="÷">
+    </div>
+    <div class="btn-other">
+      <input class="design button" type="button" value="7">
+      <input class="design button" type="button" value="8">
+      <input class="design button" type="button" value="9">
+      <input class="enzan" id="multiplication" type="button" value="×">
+    </div>
+    <div class="btn-other">
+      <input class="design button" type="button" value="4">
+      <input class="design button" type="button" value="5">
+      <input class="design button" type="button" value="6">
+      <input class="enzan" id="substraction" type="button" value="-">
+    </div>
+    <div class="btn-other">
+      <input class="design button" type="button" value="1">
+      <input class="design button" type="button" value="2">
+      <input class="design button" type="button" value="3">
+      <input class="enzan" id="addition" type="button" value="+">
+    </div>
+    <div class="btn-other">
+      <input class="design button" id="zero" type="button" value="0">
+      <input class="design" id="dot" type="button" value=".">
+      <input class="design" id="equal" type="button" value="=">
+    </div>
+  </div><!-- calculator -->
+  
+  
+  
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="./main.js"></script>  
+</body>
+</html>
