@@ -19,15 +19,17 @@ $(function () {
       $("#answer").val("");
       cflag = false;
       $("#clear").val("AC");
+      $(".button").prop("disabled", false);
       console.log(answer);
     }//clag = false ACのとき
-     else if (cflag == false) {
+    else if (cflag == false) {
       $("#answer").val("");
       answer = "";
       $("#clear").val("AC");
       //演算記号もクリアにしておく。
       enzan = "";
       $("#dot").prop("disabled", false);
+      $(".button").prop("disabled", false);
       dot = false;
       clearflag = false;
       errorflag = false;
@@ -39,14 +41,21 @@ $(function () {
 //数字ボタンを押すと数値が入力される。
 $(function () {
   $(".button").click(function () {
-    //cleaflag = trueなら表示中の数字をクリアする。
-    if (clearflag === true) {
-      $("#answer").val("");
-      //数字を押したときに表示がクリアされるようクリアフラグを立てる
-      clearflag = false;
-      //小数点をまた押せるようにする
-      $("#dot").prop("disabled", false);
+    //入力可能桁数を10桁までにする
+    if ($("#answer").val().length >= 10) {
+      $(".button").prop("disabled", true);
+      $("#answer").val("error!");
+    } else {
+      //cleaflag = trueなら表示中の数字をクリアする。
+      if (clearflag === true) {
+        $("#answer").val("");
+        //数字を押したときに表示がクリアされるようクリアフラグを立てる
+        clearflag = false;
+        //小数点をまた押せるようにする
+        $("#dot").prop("disabled", false);
+      }
     }
+
     //AC表示をCに切り替える
     $("#clear").val("C");
     Number($("#answer").val($("#answer").val() + $(this).val()));
@@ -111,7 +120,7 @@ function enzanClick(kigou) {
   } else {
     enzanClick1()
   }
-//表示桁を10桁までにする  
+  //表示桁を10桁までにする  
   digit()
 
   clearflag = true;
@@ -119,16 +128,16 @@ function enzanClick(kigou) {
 }
 
 //演算記号に何か覚えていれば、answerに保存した値と表示中の値と記憶した演算記号で計算する。
-function enzanClick1(){
-	if (enzan === "+") {
-      answer += Number($("#answer").val());
-    } else if (enzan === "-") {
-      answer -= Number($("#answer").val());
-    } else if (enzan === "×") {
-      answer *= Number($("#answer").val());
-    } else if (enzan === "÷") {
-      answer /= Number($("#answer").val());
-    }
+function enzanClick1() {
+  if (enzan === "+") {
+    answer += Number($("#answer").val());
+  } else if (enzan === "-") {
+    answer -= Number($("#answer").val());
+  } else if (enzan === "×") {
+    answer *= Number($("#answer").val());
+  } else if (enzan === "÷") {
+    answer /= Number($("#answer").val());
+  }
 }
 
 //＝を押したとき
@@ -144,28 +153,28 @@ $(function () {
 });
 
 //表示桁を10桁以内にする
-function digit(){
-	//小数点で切り分ける
-   let num1 = String(answer).split(".");
+function digit() {
+  //小数点で切り分ける
+  let num1 = String(answer).split(".");
 
-    //整数部で11桁以上の場合、エラーを表示
-    if (num1[0].length > 10) {
-      $("#answer").val("error!");
-      errorflag = true;
-    }
-    //整数部が10桁までの場合、整数部はそのまま表示、少数部は値を丸めて全部で10桁以内にする
-    //10から整数部の桁を引いた数だけ小数部を表示できる
-    else if (String(answer).length >= 10 && num1[0].length <= 10) {
-     let n = 10 - num1[0].length;
-      answer = Number(answer).toFixed(n);
-      $("#answer").val(answer);
-    }else{
-      $("#answer").val(answer);
-    }
-    
-    
-      //★以下でも表示桁が10桁にできる
-//    else {
-//      answer = Math.round(answer * 1000000000) / 1000000000;
-//   }
+  //整数部で11桁以上の場合、エラーを表示
+  if (num1[0].length > 10) {
+    $("#answer").val("error!");
+    errorflag = true;
+  }
+  //整数部が10桁までの場合、整数部はそのまま表示、少数部は値を丸めて全部で10桁以内にする
+  //10から整数部の桁を引いた数だけ小数部を表示できる
+  else if (String(answer).length >= 10 && num1[0].length <= 10) {
+    let n = 10 - num1[0].length;
+    answer = Number(answer).toFixed(n);
+    $("#answer").val(answer);
+  } else {
+    $("#answer").val(answer);
+  }
+
+
+  //★以下でも表示桁が10桁にできる
+  //    else {
+  //      answer = Math.round(answer * 1000000000) / 1000000000;
+  //   }
 }
