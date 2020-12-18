@@ -4,7 +4,7 @@ I learned JavaScript, so I made a calculator.
  
 # DEMO
  
-![iPhone like calc](https://N0S0.github.io/iPhoneCalc/)
+[iPhone like calc](https://N0S0.github.io/iPhoneCalc/)
  
 # Features
  
@@ -16,7 +16,7 @@ I learned JavaScript, so I made a calculator.
 * windows10
 * XAMPP 7.3.18
  
-#Note
+# Note
 
 I don't test environments under Linux and Mac.
  
